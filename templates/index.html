@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} Longreads {% endblock %}</h1>
+    <div class="content">
+        {% for longread in longreads %}
+            <div class="longread">
+                <p><b>#{{ longread.id }}</b></p>
+                <b>
+                    <p class="name">
+                        <a href="{{ url_for('longread', longread_id=longread.id)}}">
+                            {{ longread.name }}
+                        </a>
+                    </p>
+                </b>
+                <p>{{ longread.description }}</p>
+                <p>{{ longread.img_link }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

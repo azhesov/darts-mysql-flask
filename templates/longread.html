@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="title">
+        <h1>{% block title %} {{ longread.name }} {% endblock %}</h1>
+    </span>
+    <div class="content">
+            <div class="longread">
+                <p><b>#{{ longread.id }}</b></p> <a href="{{ url_for('edit', longread_id=longread.id) }}">Edit</a>
+                <hr>
+                <form method="POST"
+                      action="{{ url_for('delete', longread_id=longread.id) }}">
+                    <input type="submit" value="Delete Longread"
+                           onclick="return confirm('Are you sure you want to delete this entry?')">
+                </form>
+                <b>
+                    <p class="name">{{ longread.name }}</p>
+                </b>
+                <p>{{ longread.description }}</p>
+                <p>{{ longread.img_link }}</p>
+                <div class="bio">
+                    <h4>Text</h4>
+                    <p>{{ longread.text }}</p>
+                </div>
+            </div>
+    </div>
+{% endblock %}

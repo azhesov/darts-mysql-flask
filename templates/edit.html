@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="width: 100%">
+        {% block title %} Edit {{ longread.name }} longread details
+        {% endblock %}
+    </h1>
+    <form method="post">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" name="name"
+                   value={{ longread.name }}
+                   placeholder="Name">
+            </input>
+        </p>
+
+        <p>
+        <label for="description">Description</label>
+        <br>
+        <textarea name="description"
+                  placeholder="Description"
+                  rows="5"
+                  cols="20"
+                  >{{ longread.description }}</textarea>
+        </p>
+        <p>
+            <label for="img_link">Img_link</label>
+            <input type="text" name="img_link"
+                   value={{ longread.img_link }}
+                   placeholder="Img_link">
+            </input>
+        </p>
+
+        <p>
+        <label for="text">Text</label>
+        <br>
+        <textarea name="text"
+                  placeholder="Text"
+                  rows="15"
+                  cols="60"
+                  >{{ longread.text }}</textarea>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}
