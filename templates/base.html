@@ -21,6 +21,14 @@
             padding: 10px;
             margin: 5px;
             background-color: #f3f3f3;
+            inline-size: 90%;
+        }
+
+        .world {
+            flex: 20%;
+            padding: 10px;
+            margin: 5px;
+            background-color: #f4f4f4;
             inline-size: 100%;
         }
 
@@ -31,16 +39,18 @@
 
         nav a {
             color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
+            font-size: 1.5em;
+            margin-left: 20px;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">Darts Project</a>
-        <a href="{{ url_for('create') }}">Create</a>
+        <a href="{{ url_for('world_index') }}">Darts</a>
+        <a href="{{ url_for('world_create') }}">Create</a>
+        <a href="{{ url_for('longread_index') }}">Explore</a>
+        <a href="#">Profile</a>
         <a href="#">About</a>
     </nav>
     <hr>

@@ -2,10 +2,11 @@
 
 {% block content %}
     <h1 style="width: 100%">
+        <a href="{{ url_for('longread', longread_id=longread.id) }}">Back</a>
         {% block title %} Edit {{ longread.name }} longread details
         {% endblock %}
     </h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <p>
             <label for="name">Name</label>
             <input type="text" name="name"
@@ -23,23 +24,9 @@
                   cols="20"
                   >{{ longread.description }}</textarea>
         </p>
-        <p>
-            <label for="img_link">Img_link</label>
-            <input type="text" name="img_link"
-                   value={{ longread.img_link }}
-                   placeholder="Img_link">
-            </input>
-        </p>
 
-        <p>
-        <label for="text">Text</label>
-        <br>
-        <textarea name="text"
-                  placeholder="Text"
-                  rows="15"
-                  cols="60"
-                  >{{ longread.text }}</textarea>
-        </p>
+        <input type="file" id="myFile" name="uploaded-file" accept=".jpg">
+
         <p>
             <button type="submit">Submit</button>
         </p>

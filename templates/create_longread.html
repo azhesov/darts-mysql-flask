@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('world', world_id=world_id) }}">Back</a>
+    <h1 style="width: 100%">{% block title %} Add a New Longread {% endblock %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" name="name"
+                   placeholder="Name">
+            </input>
+        </p>
+
+        <p>
+            <label for="description">Description</label>
+            <textarea name="description"
+                  placeholder="Description"
+                  rows="5"
+                  cols="20"
+                  ></textarea>
+        </p>
+
+        <input type="file" id="myFile" name="uploaded-file" accept=".jpg">
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}
