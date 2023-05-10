@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="width: 100%">
+        <a href="{{ url_for('world', world_id=world.id) }}">Back</a>
+        {% block title %} Edit {{ world.name }} world details
+        {% endblock %}
+    </h1>
+    <form method="post" enctype="multipart/form-data">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" name="name"
+                   value={{ world.name }}
+                   placeholder="Name">
+            </input>
+        </p>
+
+        <p>
+        <label for="description">Description</label>
+        <br>
+        <textarea name="description"
+                  placeholder="Description"
+                  rows="5"
+                  cols="20"
+                  >{{ world.description }}</textarea>
+        </p>
+
+        <input type="file" id="myFile" name="uploaded-file" accept=".jpg">
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}

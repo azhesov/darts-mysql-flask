@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="width: 100%">
+        <a href="{{ url_for('chapter', chapter_id=chapter.id) }}">Back</a>
+        {% block title %} Edit {{ chapter.name }} chapter details
+        {% endblock %}
+    </h1>
+    <form method="post">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" name="name"
+                   value={{ chapter.name }}
+                   placeholder="Name">
+            </input>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}

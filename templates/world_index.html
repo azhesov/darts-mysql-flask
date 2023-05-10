@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} Worlds {% endblock %}</h1>
+    <div class="content">
+        {% for world in worlds %}
+            <div class="world">
+                <b>
+                    <p class="name">
+                        <a href="{{ url_for('world', world_id=world.id)}}">
+                            {{ world.name }}
+                        </a>
+                    </p>
+                </b>
+                <p>{{ world.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

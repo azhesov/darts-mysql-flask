@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('chapter', chapter_id=chapter_id) }}">Back</a>
+    <h1 style="width: 100%">{% block title %} Add a New Blockcontent {% endblock %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        <p>
+            <label for="text">Text</label>
+            <textarea name="text"
+                  placeholder="Text"
+                  rows="5"
+                  cols="20"
+                  ></textarea>
+        </p>
+
+        <input type="file" id="myFile" name="uploaded-file" accept=".jpg">
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}

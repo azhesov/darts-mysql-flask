@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="title">
+        <a href="{{ url_for('longread', longread_id=chapter.longread_id) }}">Back</a>
+        <h1>{% block title %} {{ chapter.name }} {% endblock %}</h1>
+        <a href="{{ url_for('chapter_edit', chapter_id=chapter.id) }}">Edit</a>
+        <form method="POST"
+                      action="{{ url_for('chapter_delete', chapter_id=chapter.id) }}">
+                    <input type="submit" value="Delete Chapter"
+                           onclick="return confirm('Are you sure you want to delete this chapter?')">
+        </form>
+    </span>
+    <div class="content">
+        <span class="title">
+            <a href="{{ url_for('blockcontent_create', longread_id=chapter.longread_id, chapter_id=chapter.id)}}">Add new BlockContent</a>
+        </span>
+    </div>
+    <div class="content">
+        <div>
+        {% for blockcontent in blockcontents %}
+            <img src="{{ blockcontent.img_link }}" width="200" height="100" align="middle">
+            <div class="blockcontent">
+                <p>{{ blockcontent.text }}</p>
+            </div>
+            <a href="{{ url_for('blockcontent_edit', blockcontent_id=blockcontent.id) }}">Edit</a>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
